@@ -1,0 +1,8 @@
+argparse
+time
+numpy
+polars
+tqdm
+pandas
+duckdb
+pyarrow
