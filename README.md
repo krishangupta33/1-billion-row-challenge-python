@@ -60,6 +60,8 @@ The implementations showcase different approaches to processing a large dataset 
 | Polars | 27.80 seconds |
 | DuckDB | 7.18 seconds |
 
+![Results](comparison.png)
+
 
 DuckDB demonstrated the fastest performance, followed by Polars and Dask. The pure Python implementation took the longest time due to its iterative nature and lack of optimizations.
 
