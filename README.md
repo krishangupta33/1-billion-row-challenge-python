@@ -2,22 +2,6 @@
 
 This project tackles the challenge of processing a massive dataset containing one billion rows of temperature measurements from various weather stations. The goal is to efficiently calculate the minimum, mean, and maximum temperature for each weather station.
 
-## Table of Contents
-
-- [One Billion Row Challenge 💪](#one-billion-row-challenge-)
-  - [Table of Contents](#table-of-contents)
-  - [Challenge Description](#challenge-description)
-  - [Dataset](#dataset)
-  - [Implementations](#implementations)
-    - [1- Pure Python\[1\]](#1--pure-python1)
-    - [2- Pandas\[2\]](#2--pandas2)
-    - [3- Dask\[3\]](#3--dask3)
-    - [4- Polars\[4\]](#4--polars4)
-    - [5- DuckDB\[5\]](#5--duckdb5)
-  - [Results](#results)
-  - [Requirements](#requirements)
-  - [Usage](#usage)
-  - [Contributing](#contributing)
 
 ## Challenge Description
 
@@ -32,31 +16,31 @@ The dataset used in this project contains one billion rows, with each row repres
 Several implementations were explored to tackle this challenge, each utilizing different libraries and techniques. I ran these implementation on 16GB RAM, M2 Pro 14" Macbook. The implementations are as follows:
 
 
-### 1- Pure Python[1]
+### 1- Pure Python
 
 The pure Python implementation reads the dataset line by line, processes each row, and calculates the statistics for each weather station using dictionaries. It utilizes the `tqdm` library for progress tracking.
 
 **Elapsed Time:** 594.89 seconds (~10 minutes)
 
-### 2- Pandas[2]
+### 2- Pandas
 
 The Pandas implementation leverages the power of the Pandas library to process the dataset in chunks. It reads the data in smaller portions, calculates the statistics for each chunk, and then aggregates the results to obtain the final statistics for each weather station.
 
 **Elapsed Time:** 155.37 seconds
 
-### 3- Dask[3]
+### 3- Dask
 
 The Dask implementation utilizes the Dask library for parallel processing. It reads the dataset in chunks using Dask's distributed computing capabilities, calculates the statistics for each chunk, and then combines the results to obtain the final statistics for each weather station.
 
 **Elapsed Time:** 57.12 seconds
 
-### 4- Polars[4]
+### 4- Polars
 
 The Polars implementation utilizes the Polars library, which is designed for fast data processing. It reads the dataset using lazy evaluation, groups the data by weather station, and calculates the statistics using efficient aggregation functions. Streaming mode is enabled to optimize memory usage.
 
 **Elapsed Time:** 27.80 seconds
 
-### 5- DuckDB[5]
+### 5- DuckDB
 
 The DuckDB implementation leverages the DuckDB library, which is an embedded SQL database engine. It reads the dataset from a Parquet file and performs the aggregations directly using SQL queries. DuckDB's columnar storage and query optimization techniques contribute to its fast performance.
 
@@ -104,13 +88,10 @@ pip install pandas polars duckdb dask tqdm
 git clone https://github.com/krishangupta33/1-billion-row-challenge-python.git
 ```
 
-2. Navigate to the project directory:
+2. Go to the project directory
 
-```
-cd 1-billion-row-challenge-python
-```
 
-3. Ensure you generate the `measurements.txt` and `measurements.parquet` file in the `data` directory.
+3. Run generatedata.ipynb to generate `measurements.txt` and `measurements.parquet` file in the `data` directory.
 
 4. Run the desired implementation code block from `1brc.ipynb`
 
